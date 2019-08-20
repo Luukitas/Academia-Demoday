@@ -33,7 +33,7 @@ class PerguntaForm(ModelForm):
 class AlternativaForm(ModelForm):
     class Meta:
         model = Alternativa
-        fields = ['texto', 'correta', 'selecionada'] #A pergunta não foi usada da models pois ela é realizada pelo usuário
+        fields = ['texto', 'correta'] #A pergunta não foi usada da models pois ela é realizada pelo usuário
         widgets = {'texto' : TextInput(attrs={'class': 'form-control', 'placeholder': 'insira o conteudo da alternativa'})}
 
 #fim do app de perguntas

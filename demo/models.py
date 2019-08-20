@@ -187,7 +187,7 @@ class Empresa(models.Model):
 class Disciplina(models.Model): #Linguagem da pergunta
     descricao = models.CharField(max_length = 50, unique = True)
 
-    def __str__(self):
+    def __str__(self): #coloca as opções da tabela a serem dmonstradas para o usuario
         return self.descricao
 
 #class Ano(models.Model):
@@ -218,11 +218,11 @@ class Pergunta(models.Model):
     texto = models.TextField()
     respondida = models.BooleanField(default = False)
     correta = models.BooleanField(default = False)
-    disciplina = models.ForeignKey('Disciplina', on_delete = models.CASCADE, related_name = 'Pergunta')
-    #ano = models.ForeignKey('Ano', on_delete = models.CASCADE, related_name = 'Pergunta')
-    area = models.ForeignKey('Area', on_delete = models.CASCADE, related_name = 'Pergunta')
-    nivel = models.ForeignKey('Nivel', on_delete = models.CASCADE, related_name = 'Pergunta')
-    Framework = models.ForeignKey('Framework', on_delete = models.CASCADE, related_name = 'Pergunta')
+    disciplina = models.ForeignKey('Disciplina', on_delete = models.CASCADE, related_name = 'pergunta', null=True, blank=True)
+    #ano = models.ForeignKey('Ano', on_delete = models.CASCADE, related_name = 'pergunta')
+    area = models.ForeignKey('Area', on_delete = models.CASCADE, related_name = 'pergunta', null=True, blank=True)
+    nivel = models.ForeignKey('Nivel', on_delete = models.CASCADE, related_name = 'pergunta', null=True, blank=True)
+    Framework = models.ForeignKey('Framework', on_delete = models.CASCADE, related_name = 'pergunta')
 
 
 class Alternativa(models.Model):

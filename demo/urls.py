@@ -21,7 +21,8 @@ urlpatterns = [
     path('home',sobre_nos),
     path('configuracoes/<int:id>', configuracao),
     #url da pagina de perguntas
-    path('pergunta/inserir', views.pergunta_inserir, name='pergunta_inserir'), 
+    path('pergunta/inserir', views.pergunta_inserir, name='pergunta_inserir'),
+    path('pergunta/atualizar/<int:id>', views.pergunta_atualizar, name = 'pergunta_atualizar'),
 ]
 
 if settings.DEBUG:

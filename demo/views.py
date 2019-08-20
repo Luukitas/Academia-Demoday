@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from demo.models import Pessoa, Empresa, Exp_pessoa
+from demo.models import Pessoa
+from demo.models import Empresa
+from demo.models import Exp_pessoa
 from .forms import *
 
 #inicio dos imports e da views para a pagina de perguntas
@@ -21,9 +23,21 @@ def pergunta_inserir(request):
             alternativa = form_alternativa.save(commit=False)
             alternativa.pergunta = pergunta
             alternativa.save()
-        redirect('index')
+        redirect('pergunta_form.html') ####Posteriorment colocar outro template
     return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas})
 
+def pergunta_atualizar(request, id):
+    pergunta = Pergunta.objects.get(pk = id)
+    form_pergunta = PerguntaForm(request.POST or None, instance = pergunta)
+    form_alternativas = [AlternativaForm(request.POST or None, instance = alternativa, prefix = str(alternativa.id)) for alternativa in pergunta.alternativa.all()]
+
+    if(form_pergunta.is_valid() and all(form_alternativa.is_valid() for form_alternativa in form_alternativas)):
+        form_pergunta.save()
+        for form_alternativa in form_alternativas:
+            form_alternativa.save()
+        redirect('pergunta_form.html') ####Posteriorment colocar outro template
+    return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas})
+    
 # fim da views para a pagina de perguntas.
 
 def index(request):

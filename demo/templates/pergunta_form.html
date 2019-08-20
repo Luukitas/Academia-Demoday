@@ -7,7 +7,7 @@
 {% block content %}
 
 <form class="forma" action="" method="post">
-    
+    {% csrf_token %}
     {% for field in form_pergunta %}
 
 
@@ -16,8 +16,8 @@
     <div class="input group mb-3">
         <div class="input-group-prepend">
             <label class="input-group-text label-form">{{ field.label }}</label>
+            {{ field }}
         </div>
-        {{ field }}
     </div>
 
     {% else %}
