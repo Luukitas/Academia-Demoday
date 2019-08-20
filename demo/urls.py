@@ -1,8 +1,12 @@
-from django.urls import path, include
+from django.urls import path
+from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from demo.views import * 
 from demo.usuario import *
+
+#imports da usados para a pagina de perguntas
+from . import views
 
 urlpatterns = [
     path('', index),
@@ -15,7 +19,9 @@ urlpatterns = [
     path('empresa/<int:id>/<str:name>', pagina_empr),
     path('conteudo/<int:id>', conteudo),
     path('home',sobre_nos),
-    path('configuracoes/<int:id>', configuracao)
+    path('configuracoes/<int:id>', configuracao),
+    #url da pagina de perguntas
+    path('pergunta/inserir', views.pergunta_inserir, name='pergunta_inserir'), 
 ]
 
 if settings.DEBUG:

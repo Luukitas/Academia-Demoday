@@ -180,3 +180,53 @@ class Empresa(models.Model):
     def __str__(self):
         return self.nome
 
+
+
+
+#Models do questionario 
+class Disciplina(models.Model): #Linguagem da pergunta
+    descricao = models.CharField(max_length = 50, unique = True)
+
+    def __str__(self):
+        return self.descricao
+
+#class Ano(models.Model):
+   #descricao = models.CharField(max_length = 4, unique = True)
+
+    #def __str__(self):
+        #return self.descricao
+
+class Framework(models.Model): #A pergunta é sobre django, python, programação pura?
+    descricao = models.CharField(max_length = 50, unique = True)
+
+    def __str__(self):
+        return self.descricao
+
+class Nivel(models.Model): #Nivel da pergunta, basico, intermediário ou avançado?
+    descricao = models.CharField(max_length = 50, unique = True)
+
+    def __str__(self):
+        return self.descricao
+
+class Area(models.Model):  #Tópico, é voltado a games?Servidores, segurança da informação?
+    descricao = models.CharField(max_length = 50, unique = True)
+
+    def __str__(self):
+        return self.descricao
+
+class Pergunta(models.Model):
+    texto = models.TextField()
+    respondida = models.BooleanField(default = False)
+    correta = models.BooleanField(default = False)
+    disciplina = models.ForeignKey('Disciplina', on_delete = models.CASCADE, related_name = 'Pergunta')
+    #ano = models.ForeignKey('Ano', on_delete = models.CASCADE, related_name = 'Pergunta')
+    area = models.ForeignKey('Area', on_delete = models.CASCADE, related_name = 'Pergunta')
+    nivel = models.ForeignKey('Nivel', on_delete = models.CASCADE, related_name = 'Pergunta')
+    Framework = models.ForeignKey('Framework', on_delete = models.CASCADE, related_name = 'Pergunta')
+
+
+class Alternativa(models.Model):
+    texto = models.TextField()
+    correta = models.BooleanField(default = False)
+    selecionada = models.BooleanField(default = False)
+    pergunta =  models.ForeignKey('Pergunta', on_delete = models.CASCADE, related_name = 'alternativa')

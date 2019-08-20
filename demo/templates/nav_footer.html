@@ -1,0 +1,81 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Liu+Jian+Mao+Cao|Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/nav-footer.css' %}">
+    <title>{%block title%}
+
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1><a href="#">Emprega<b>+</b></a></h1>
+        </div>
+
+        <div class="options">
+            <a href="#">Empresas</a>
+            <a href="#">Candidatos</a>
+            <a href="/cad-empresa">Cadastrar Empresas</a>
+            <a href="/cadastrar">Cadastrar</a>
+            <a href="/login">Entrar</a>
+        </div>
+    </nav>
+
+    <div class="var">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+
+
+    <footer>
+            <div class="flex-box">
+                <div class="footer">
+                    <div class="column ">
+                        <p class="highlight footerlines">Emprega+</p>
+                        <a href="#" class="footerlines">Nossa História</a>
+                        <a href="#" class="footerlines">Sac</a>
+                        <a href="#" class="footerlines">Termos de Uso</a>
+                    </div>
+    
+                    <div class="column">
+                        <p class="highlight footerlines">Para Empresas</p>
+                        <a href="#" class="footerlines">Funcionamento</a>
+                        <a href="#" class="footerlines">Histórias de Sucesso</a>
+                        <a href="#" class="footerlines">Dúvidas</a>
+                    </div>
+    
+                    <div class="column">
+                        <p class="highlight footerlines">Para Candidatos</p>
+                        <a href="#" class="footerlines">Funcionamento</a>
+                        <a href="#" class="footerlines">Histórias de Sucesso</a>
+                        <a href="#" class="footerlines">Dúvidas</a>
+                    </div>
+    
+                    <div class="column">
+                        <p class="highlight footerlines">Contato</p>
+                        <p>+55 (11) 91234-1234</p>
+                        <p>Estação Hack, Avenida Paulista 5° Andar</p>
+                        <p>Email: Atendimento@empregamais.com</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="small-line">
+                <p>© 2019 Emprega+. Todos os direitos reservados</p>
+                <div class="networks" class="case">
+                    <a href="#" target="_blank" title="Linkedin"><img class="sn" src="static/imgs/linkedin-letters.png" alt="Linkedin" title="Notify on Linkedin"></a>
+                    <a href="#" target="_blank" title="twitter"><img class="sn" src="static/imgs/twitter.png" alt="Tweeter"></a>
+                    <a href="#" target="_blank" title="Youtube"> <img class="sn" src="static/imgs/youtube-logo.png" alt="Youtube"></a>
+                    <a href="#" target="_blank" title=" Facebook"><img class="sn" src="static/imgs/facebook-logo.png" alt="Facebook"></a>
+                </div>
+            </div>
+        </footer>
+</body>
