@@ -24,7 +24,7 @@ class PerguntaForm(ModelForm):
     framework = ModelChoiceField(queryset = Framework.objects.all(), empty_label="Qual o Framework que a pergunta pertence?")
     class Meta:
         model = Pergunta
-        fields = ['texto', 'respondida', 'correta', 'disciplina', 'area', 'nivel', 'framework' ] #'ano'
+        fields = ['texto', 'disciplina', 'area', 'nivel', 'framework' ] #'ano'
         widgets = {
             'texto' : Textarea(attrs={'class': 'form-question', 'placeholder': 'Escreva aqui a sua pergunta'}),
             }

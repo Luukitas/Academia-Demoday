@@ -1,10 +1,10 @@
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
-from aplicativo.models import Disciplina
-#from aplicativo.models import Ano
-from aplicativo.models import Framework
-from aplicativo.models import Area
-from aplicativo.models import Nivel
+from demo.models import Disciplina
+#from demo.models import Ano
+from demo.models import Framework
+from demo.models import Area
+from demo.models import Nivel
 
 class Command(BaseCommand):
     help = 'script para popular as tabelas de dominio'
