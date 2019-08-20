@@ -6,18 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Assistant|Liu+Jian+Mao+Cao|Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Liu+Jian+Mao+Cao|Montserrat&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style_cadastro.css' %}">
-    <script defer src="{% static 'js/script.js' %}"></script>
     <title>Emprega+</title>
 </head>
 
 <body>
-   <button class="btn-acess" onclick="mudaCor()">oaskoaskoaks</button>
-    <div class="cadastro">
-        {% block conteudo %} {% endblock %}
-    </div>
+    <nav>
+        <h1 class="logo">Emprega<b>+</b></h1>
+        <a href="/">sair</a>
+    </nav>
+    <!-- <button class="btn-acess" onclick="mudaCor()">oaskoaskoaks</button> -->
+    <section>
+        <div class="cadastro">
+            {% block conteudo %} {% endblock %}
+        </div>
+    </section>
 </body>
 
 </html>

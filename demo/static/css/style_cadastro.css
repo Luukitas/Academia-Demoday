@@ -1,17 +1,8 @@
 body{
-    display: flex;
+    grid-template-areas: 'nav nav nav nav'
+                        'cadastro cadastro cadastro cadastro';
     font-family: 'Montserrat', sans-serif;
-    justify-content: center;
     margin: 0;
-    padding: 20px 0;
-}
-
-a {
-    align-items: center;
-    display: flex;
-    justify-content: left;
-    text-decoration: none;
-    width: 70vw;
 }
 
 ::-webkit-scrollbar{
@@ -31,6 +22,30 @@ a {
     background: rgb(84, 8, 155);
 }
 
+nav{
+    align-items: center;
+    border-bottom: 1px solid purple;
+    display: flex;
+    grid-area: nav;
+    justify-content: space-around;
+}
+
+nav a{
+    color: gray;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: black;
+}
+
+section{
+    display: flex;
+    grid-area: cadastro;
+    justify-content: center;
+    width: 100%;
+}
+
 .cadastro{
     align-items: center;
     background-color: white;
@@ -40,6 +55,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: right;
+    margin: 20px 0;
     padding: 20px;
     width: 60%;
 }
@@ -61,11 +77,12 @@ a {
 .cadastro input[type='text'], 
 .cadastro input[type='password'], 
 .cadastro input[type='email'], 
-.cadastro input[type='file']{
+.cadastro input[type='file'],
+.cadastro select{
     border: none;
     border-bottom: 1px solid gray;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     outline: none;
     width: 100%;
 }
@@ -91,6 +108,21 @@ a {
     transition: 0.1s ease-in;
 }
 
+.cadastro textarea{
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    outline: none;
+    width: 100%;
+}
+
+.cadastro textarea:focus{
+    border: 2px solid black;
+    transition-delay: 0.3s;
+    transition: 0.1s ease-in;
+}
+
 .btn-acess{
     background-color: rgba(123, 14, 224, 0.945);
     color: white;
@@ -103,4 +135,18 @@ a {
 .gray div,
 .gray form {
     background-color: gray;
+}
+
+.logo{
+    font-family: 'Assistant', sans-serif;
+    font-size: 35px;
+    margin: 10px 0;
+}
+
+.logo b{
+    color: rgb(6, 247, 6);
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 0 0 -8px;
 }
