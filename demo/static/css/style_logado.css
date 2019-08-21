@@ -174,17 +174,11 @@ main {
 
 /* >>> Classe da logo */
 .logo {
-    font-family: 'Assistant', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 15px;
-    margin-top: 0px;
 }
 
-.logo-green {
-    color: rgb(6, 247, 6);
-    font-family: 'Liu Jian Mao Cao', cursive;
-    font-size: 30px;
-    margin: 0 0 0 -2px;
-}
+
 /* Até aqui */
 
 /* >>> Classe de estilização do nav na parte logada do usuario (usado no base_logado)*/
@@ -419,6 +413,7 @@ p {
 footer {
     align-items: center;
     background-color: #1f0464;
+    color: white;
     display: flex;
     justify-content: space-evenly;
     grid-area: footer;

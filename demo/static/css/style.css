@@ -53,6 +53,13 @@ nav div a{
 }
 */
 
+.mais{
+    color: white;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-size: 30px;
+    margin: 0 0 0 -2px;
+}
+
 .v-header{
     height: 100vh;
     width: 100vw;

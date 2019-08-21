@@ -138,15 +138,8 @@ section{
 }
 
 .logo{
-    font-family: 'Assistant', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 35px;
     margin: 10px 0;
 }
 
-.logo b{
-    color: rgb(6, 247, 6);
-    font-family: 'Liu Jian Mao Cao', cursive;
-    font-size: 50px;
-    font-weight: bold;
-    margin: 0 0 0 -8px;
-}
