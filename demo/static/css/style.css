@@ -121,7 +121,7 @@ nav div a{
 
 b{
     color: green;
-    font-size: 25px;
+    font-size: 100%;
 }
 
 .btn{
@@ -278,6 +278,10 @@ b{
     width: 900px;
 }
 
+.hidden{
+    width: 25%;
+}
+
 .section-b h2{
     padding-top: 20px;
     text-align: center;
@@ -378,10 +382,6 @@ h5{ /*do titulo das profissoes*/
     text-transform: uppercase;
 }
 
-.section-c h2{
-    padding: 20px;
-}
-
 .last{
     width: 100vw;
     padding: 20px;
@@ -446,8 +446,9 @@ a:hover{
 .networks{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 15%;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
 }
 
 .sn{
@@ -456,9 +457,20 @@ a:hover{
 }
 
 .net{
-    width: 15px;
-    height: 15px;
+    width: 20px;
     margin-top: 20px;
+    margin: 10;
+}
+
+.linking{
+    width: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+.linking:hover{
+    background: #2fbddc;
+    border-radius: 50%;
 }
 
 .small-line{
@@ -520,14 +532,6 @@ a:hover{
 
     .section-b{
         height: auto;
-    }
-
-    .inside-section-b {
-        width: auto;
-    }
-
-    .inside-section-b div{
-        margin: 20px;
     }
 
     .another-box{
