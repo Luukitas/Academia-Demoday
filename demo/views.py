@@ -1,8 +1,44 @@
-from django.shortcuts import render, redirect
-from demo.models import Pessoa, Empresa, Exp_pessoa
+from django.shortcuts import render
+from django.shortcuts import redirect
+from demo.models import Pessoa
+from demo.models import Empresa
+from demo.models import Exp_pessoa
 from .forms import *
 
-# Create your views here.
+#inicio dos imports e da views para a pagina de perguntas
+from .forms import PerguntaForm
+from .forms import AlternativaForm 
+from .models import Alternativa
+
+def index(request):
+    return render(request, 'index.html')
+
+def pergunta_inserir(request):
+    form_pergunta = PerguntaForm(request.POST)
+    form_alternativas = [AlternativaForm(request.POST, prefix = str(i))for i in range(1, 6)]
+
+    if(form_pergunta.is_valid() and all(form_alternativa.is_valid() for form_alternativa in form_alternativas)):
+        pergunta = form_pergunta.save()
+        for form_alternativa in form_alternativas:
+            alternativa = form_alternativa.save(commit=False)
+            alternativa.pergunta = pergunta
+            alternativa.save()
+        redirect('pergunta_form.html') ####Posteriorment colocar outro template
+    return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas})
+
+def pergunta_atualizar(request, id):
+    pergunta = Pergunta.objects.get(pk = id)
+    form_pergunta = PerguntaForm(request.POST or None, instance = pergunta)
+    form_alternativas = [AlternativaForm(request.POST or None, instance = alternativa, prefix = str(alternativa.id)) for alternativa in pergunta.alternativa.all()]
+
+    if(form_pergunta.is_valid() and all(form_alternativa.is_valid() for form_alternativa in form_alternativas)):
+        form_pergunta.save()
+        for form_alternativa in form_alternativas:
+            form_alternativa.save()
+        redirect('pergunta_form.html') ####Posteriorment colocar outro template
+    return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas})
+    
+# fim da views para a pagina de perguntas.
 
 def index(request):
     return render(request, 'index.html')
@@ -25,7 +61,7 @@ def login(request):
         email_form = request.POST.get('email')
         senha_form = request.POST.get('senha')
         usuario = Pessoa.objects.filter(email=email_form).first()
-        exp = Exp_pessoa.objects.filter(experiencia=usuario.id)
+        # exp = Exp_pessoa.objects.filter(experiencia=usuario.id)
         
     
         if usuario is None:
@@ -43,7 +79,7 @@ def login(request):
         else:
             contexto = {
                 'pessoa': usuario,
-                'exp': exp,
+                # 'exp': exp,
             }
             return render(request, 'usuario.html', contexto)
 

@@ -35,6 +35,8 @@ body {
 /* >>> Modificações do estilo da base_logado*/
 nav {
     align-items: center;
+    background-color: #1f0464;
+    color: #fff;
     display: flex;
     grid-area: nav;
     justify-content: space-between;
@@ -187,7 +189,7 @@ main {
 
 /* >>> Classe de estilização do nav na parte logada do usuario (usado no base_logado)*/
 .purple {
-    background-color: rgb(57, 0, 131);
+    background-color: #1f0464;
     color: #fff;
 }
 /* Até aqui */

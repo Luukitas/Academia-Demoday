@@ -2,7 +2,7 @@ let nav = document.querySelector('nav');
 
 function mudar() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        nav.style.backgroundColor = 'rgba(69,27,74)';
+        nav.style.backgroundColor = '#1f0464';
         nav.style.height = '50px'
     } else {
         nav.style.backgroundColor = 'rgba(69,27,74,.088)';
