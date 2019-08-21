@@ -418,7 +418,7 @@ p {
 /* >>> Estilização do footer na paginas logadas  */
 footer {
     align-items: center;
-    background-color: rgb(169, 41, 255);
+    background-color: #1f0464;
     display: flex;
     justify-content: space-evenly;
     grid-area: footer;
@@ -435,9 +435,12 @@ footer ul {
     align-items: center;
     display: flex;
     list-style: none;
+    margin: 0;
 }
 
 footer a {
+    color: lightgrey;
+    text-decoration: none;
     margin: 0 10px;
 }
 /* Até aqui */

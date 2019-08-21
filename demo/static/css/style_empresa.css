@@ -39,10 +39,12 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    min-height: 400px;
 }
 
 .banner{
     height: 300px;
+    margin: 20px 0;
     width: 25%;
 }
 
@@ -109,4 +111,20 @@ footer{
 
 .empresa{
     width: 65%;
+}
+
+@media only screen and (max-width: 992px) { 
+    .img{
+        align-items: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .proj-banner{
+        flex-direction: column !important;
+    }
+
+    .banner{
+        width: 98% !important;
+    }
 }
