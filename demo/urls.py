@@ -20,10 +20,12 @@ urlpatterns = [
     path('conteudo/<int:id>', conteudo),
     path('home',sobre_nos),
     path('configuracoes/<int:id>', configuracao),
+
     #url da pagina de perguntas
     path('pergunta/inserir', views.pergunta_inserir, name='pergunta_inserir'),
     path('pergunta/atualizar/<int:id>', views.pergunta_atualizar, name = 'pergunta_atualizar'),
     path('pergunta/visualizar', views.visualizar_perguntas, name = 'visualizar_perguntas'),
+    #path('pergunta/filtrar', views.filtrar, name = 'filtrar'),
 ]
 
 if settings.DEBUG:

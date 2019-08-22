@@ -8,11 +8,12 @@ from .forms import *
 #inicio dos imports e da views para a pagina de perguntas
 from .forms import PerguntaForm
 from .forms import AlternativaForm 
+from .forms import FiltroForm
 from .models import Alternativa
 
 def visualizar_perguntas(request):
     perguntas = Pergunta.objects.all()
-    return render(request, 'visualizar_perguntas.html', { 'perguntas' : perguntas})
+    return render(request, 'visualizar_perguntas.html', { 'perguntas' : perguntas, 'filtro_form' : FiltroForm() }) #'filtro_form' : FiltroForm()
 
 def pergunta_inserir(request):
     form_pergunta = PerguntaForm(request.POST)
@@ -25,7 +26,7 @@ def pergunta_inserir(request):
             alternativa.pergunta = pergunta
             alternativa.save()
         redirect('visualizar_perguntas.html') ####Posteriorment colocar outro template
-    return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas})
+    return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas}) #Faz com que as forms pergunta e alternativa apareçam na pagina
 
 def pergunta_atualizar(request, id):
     pergunta = Pergunta.objects.get(pk = id)

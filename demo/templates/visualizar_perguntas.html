@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% load filtros %}
+
 {% for pergunta in perguntas %}
 <div class="card">
     <div class="card-header text-muted">
@@ -22,8 +24,8 @@
         <table class="table sem_borda">
             {% for alternativa in pergunta.alternativa.all %}
             <tr>
-                <td width="7%" height="50">
-                    <input type="radio" name="{{ pergunta.id }}" id="{{ alternativa.id }}" value="{{ alternativa.id }}"> {{ forloop.counter }}
+                <td width="10%" height="50px auto">
+                    <input type="radio" name="{{ pergunta.id }}" id="{{ alternativa.id }}" value="{{ alternativa.id }}"> {{ forloop.counter|number_to_char }}
                 </td>
                 <td>
                     <label for="{{ alternativa.id }}" class="label-alternativa">
@@ -34,12 +36,35 @@
             {% endfor %}
         </table>
 
-        <button type="button" class="btn btn-warning text-white" onclick="">Responder</button>
+        <button margin="20px;" type="button" class="btn btn-warning text-white" onclick="">Responder</button>
     </div>
     <div class="card-footer text-muted">
 
     </div>
 </div>
-<br> {% endfor %}
+<br> 
+{% endfor %}
+
+<form class="filtro" action=" " method="post">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-header">Questões</div>
+            <div class="card-body">
+                <div class="form-row align-items-center">
+                    {% for field in filtro_form %}
+                    <div class="col-sm-3 my-1">
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+    
+                    <div class="col-auto my-1">
+                        <button type="" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    
+    </form>
 
 {% endblock %}

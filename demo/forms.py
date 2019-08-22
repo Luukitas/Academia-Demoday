@@ -4,6 +4,7 @@ from .models import *
 
 #formulario do aplicativo de perguntas
 from django.forms import ModelForm
+from django.forms import Form
 from django.forms import ModelChoiceField
 from django.forms import Select
 from django.forms import TextInput
@@ -16,6 +17,20 @@ from demo.models import Area
 from demo.models import Framework
 from demo.models import Alternativa
 
+
+class FiltroForm(Form):
+    disciplina = ModelChoiceField(queryset = Disciplina.objects.all(), empty_label="Linguagem de programação?", required=False, widget=Select(attrs={'class': 'custom-select'}))#Isto define oque aparece quando a caixa de texto estiver vazia
+    nivel = ModelChoiceField(queryset = Nivel.objects.all(), empty_label="Nivel?", required=False, widget=Select(attrs={'class': 'custom-select'}))
+    #ano = ModelChoiceField(queryset = Ano.objects.all(), empty_label="Ano")
+    area = ModelChoiceField(queryset = Area.objects.all(), empty_label="Area?", required=False, widget=Select(attrs={'class': 'custom-select'}))
+    framework = ModelChoiceField(queryset = Framework.objects.all(), empty_label="Framework?", required=False, widget=Select(attrs={'class': 'custom-select'}))
+    class Meta:
+        model = Pergunta
+        fields = ['texto', 'disciplina', 'area', 'nivel', 'framework' ]
+        widgets = {
+            'texto' : Textarea(attrs={'class': 'form-question', 'placeholder': 'Escreva aqui a sua pergunta'}),
+            }
+
 #cria a form
 class PerguntaForm(ModelForm):
     disciplina = ModelChoiceField(queryset = Disciplina.objects.all(), empty_label="Qual a linguagem de programação?", required=True, widget=Select(attrs={'class': 'custom-select'}))#Isto define oque aparece quando a caixa de texto estiver vazia
@@ -25,7 +40,7 @@ class PerguntaForm(ModelForm):
     framework = ModelChoiceField(queryset = Framework.objects.all(), empty_label="Qual o Framework que a pergunta pertence?", required=True, widget=Select(attrs={'class': 'custom-select'}))
     class Meta:
         model = Pergunta
-        fields = ['texto', 'disciplina', 'area', 'nivel', 'framework' ] #'ano'
+        fields = ['texto', 'disciplina', 'area', 'nivel', 'framework' ]
         widgets = {
             'texto' : Textarea(attrs={'class': 'form-question', 'placeholder': 'Escreva aqui a sua pergunta'}),
             }

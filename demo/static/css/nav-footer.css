@@ -24,6 +24,7 @@ nav div a{
 .var{
     display: flex;
     justify-content: center;
+    flex-direction: column-reverse;
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -124,14 +125,30 @@ a:hover{
     color: #fff;
 }
 
+@media(max-width:960px){
+    .footer{
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 /* Visulizar perguntas */
 
 .card{
-    margin: 30px;
+    margin: 30px 0;
     display: block;
     display: flex;
     flex-direction: column;
+    width: 85vw;
     background: #f5f6fa;
     border-radius: 12px;
     border: 1px solid #f5f6fa;
+}
+
+.filtro{
+    width: 85vw;
+    border: border-box;
 }
