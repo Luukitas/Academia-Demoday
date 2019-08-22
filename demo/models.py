@@ -33,7 +33,8 @@ class Pessoa(models.Model):
         upload_to='images_pessoa/',
         verbose_name='Imagem',
         blank=True,
-        null=True
+        null=True,
+        default='default/User.png'
     )
 
     ativo = models.BooleanField(default=True)
