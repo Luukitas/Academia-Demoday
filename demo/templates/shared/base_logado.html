@@ -21,11 +21,7 @@
     <header>
 
         <div class="img">
-            {% if pessoa.img_perfil.url is None %}
-                <img src="../../static/imgs/User.png" alt="user">
-            {% else %}
-                <img id="img_perfil" src="{{ pessoa.img_perfil.url }}">
-            {% endif %}
+            <img id="img_perfil" src="{{ pessoa.img_perfil.url }}">
             <a class="menor" href="/configuracoes/{{pessoa.id}}">Configurações</a>
         </div>
 

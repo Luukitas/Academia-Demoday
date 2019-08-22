@@ -122,7 +122,8 @@ class Empresa(models.Model):
         upload_to='images/',
         verbose_name='Imagem',
         blank=True,
-        null=True
+        null=True,
+        default='default/Empresa.jpg'
     )
 
     nome = models.CharField(
