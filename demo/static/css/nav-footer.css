@@ -9,8 +9,8 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 70px;
-    background: blue;
+    height: 50px;
+    background: rgb(31, 4, 100);
     transition: 0.5s;
 }
 
@@ -27,7 +27,7 @@ nav div a{
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    height: 60auto;
+    height: auto;
     width: 100vw;
 }
 
@@ -122,4 +122,16 @@ a:hover{
     justify-content: center;
     padding-bottom: 15px;
     color: #fff;
+}
+
+/* Visulizar perguntas */
+
+.card{
+    margin: 30px;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    background: #f5f6fa;
+    border-radius: 12px;
+    border: 1px solid #f5f6fa;
 }

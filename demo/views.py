@@ -10,8 +10,9 @@ from .forms import PerguntaForm
 from .forms import AlternativaForm 
 from .models import Alternativa
 
-def index(request):
-    return render(request, 'index.html')
+def visualizar_perguntas(request):
+    perguntas = Pergunta.objects.all()
+    return render(request, 'visualizar_perguntas.html', { 'perguntas' : perguntas})
 
 def pergunta_inserir(request):
     form_pergunta = PerguntaForm(request.POST)
@@ -23,7 +24,7 @@ def pergunta_inserir(request):
             alternativa = form_alternativa.save(commit=False)
             alternativa.pergunta = pergunta
             alternativa.save()
-        redirect('pergunta_form.html') ####Posteriorment colocar outro template
+        redirect('visualizar_perguntas.html') ####Posteriorment colocar outro template
     return render(request, 'pergunta_form.html', { 'form_pergunta' : form_pergunta, 'form_alternativas': form_alternativas})
 
 def pergunta_atualizar(request, id):

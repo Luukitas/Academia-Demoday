@@ -5,6 +5,7 @@ from .models import *
 #formulario do aplicativo de perguntas
 from django.forms import ModelForm
 from django.forms import ModelChoiceField
+from django.forms import Select
 from django.forms import TextInput
 from django.forms import Textarea
 from demo.models import Pergunta
@@ -17,11 +18,11 @@ from demo.models import Alternativa
 
 #cria a form
 class PerguntaForm(ModelForm):
-    disciplina = ModelChoiceField(queryset = Disciplina.objects.all(), empty_label="Qual a linguagem de programação?")#Isto define oque aparece quando a caixa de texto estiver vazia
-    nivel = ModelChoiceField(queryset = Nivel.objects.all(), empty_label="Qual o nivel de dificuldade da pergunta?")
+    disciplina = ModelChoiceField(queryset = Disciplina.objects.all(), empty_label="Qual a linguagem de programação?", required=True, widget=Select(attrs={'class': 'custom-select'}))#Isto define oque aparece quando a caixa de texto estiver vazia
+    nivel = ModelChoiceField(queryset = Nivel.objects.all(), empty_label="Qual o nivel de dificuldade da pergunta?", required=True, widget=Select(attrs={'class': 'custom-select'}))
     #ano = ModelChoiceField(queryset = Ano.objects.all(), empty_label="Ano da pergunta")
-    area = ModelChoiceField(queryset = Area.objects.all(), empty_label="A pergunta é de qual area?")
-    framework = ModelChoiceField(queryset = Framework.objects.all(), empty_label="Qual o Framework que a pergunta pertence?")
+    area = ModelChoiceField(queryset = Area.objects.all(), empty_label="A pergunta é de qual area?", required=True, widget=Select(attrs={'class': 'custom-select'}))
+    framework = ModelChoiceField(queryset = Framework.objects.all(), empty_label="Qual o Framework que a pergunta pertence?", required=True, widget=Select(attrs={'class': 'custom-select'}))
     class Meta:
         model = Pergunta
         fields = ['texto', 'disciplina', 'area', 'nivel', 'framework' ] #'ano'

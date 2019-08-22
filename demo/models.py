@@ -217,7 +217,7 @@ class Pergunta(models.Model):
     #ano = models.ForeignKey('Ano', on_delete = models.CASCADE, related_name = 'pergunta')
     area = models.ForeignKey('Area', on_delete = models.CASCADE, related_name = 'pergunta', null=True, blank=True)
     nivel = models.ForeignKey('Nivel', on_delete = models.CASCADE, related_name = 'pergunta', null=True, blank=True)
-    Framework = models.ForeignKey('Framework', on_delete = models.CASCADE, related_name = 'pergunta')
+    framework = models.ForeignKey('Framework', on_delete = models.CASCADE, related_name = 'pergunta', null=True, blank=True)
 
 
 class Alternativa(models.Model):
