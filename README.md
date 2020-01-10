@@ -2,4 +2,4 @@
 
 link: https://empregamais.herokuapp.com/
 
-landing page desenvolvida por Mathues Gomes de Moura
+landing page desenvolvida por Matheus Gomes de Moura
