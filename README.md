@@ -2,4 +2,4 @@
 
 link: https://empregamais.herokuapp.com/
 
-landing page desenvolvida por Matheus Gomes de Moura
+Projeto feito por Lucas Cabral, Matheus de Moura, Giovanni Carvalho, Thamirys Macedo e Estevan Marcolino.
